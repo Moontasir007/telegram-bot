@@ -1,0 +1,17 @@
+                -------------updated code to deploy-------------
+
+1. push in github
+2. log in to ec2 instance using puppy(it will need instance's public ipv4 address and .ppk file to upload
+at Connection > SSH > Auth .
+3. log in as 'ec2-user'
+4. cd telegram-bot
+5. git pull origin main
+6. Stop the Running Bot Instance:
+	- screen -r telegram-bot
+	- ctrl+c
+7. Run the Updated Code:
+	- python3 main.py
+8. Restart the Bot in screen:
+	- screen -S telegram-bot
+	- python3 main.py
+9. Detach from the session using Ctrl+A, then D.
