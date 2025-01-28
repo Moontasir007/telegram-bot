@@ -25,9 +25,10 @@ async def handle_message(update: Update, context: CallbackContext):
     }
 
     try:
-        response = requests.post(API_URL, headers=headers, data=json.dumps(payload))
+        response = requests.post(API_URL, headers=headers, json=payload)
+        
         if response.status_code == 200:
-            api_output = response.json().get("response", "No response received.")
+            api_output = response.json().get(response.text, "No response received.")
         else:
             api_output = f"Error: {response.status_code}, {response.text}"
     except Exception as e:
